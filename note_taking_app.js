@@ -15,7 +15,7 @@ function NotesApplication(author){
 	}
 
 	this.get = function(note_id){
-		return notes[note_id];
+		return this.notes[note_id];
 	}
 
 	this.search = function(search_text){
