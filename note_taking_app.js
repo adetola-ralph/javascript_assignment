@@ -14,7 +14,7 @@ function NotesApplication(author){
 		}
 	}
 
-	this.get: function(note_id){
+	this.get = function(note_id){
 		return notes[note_id];
 	}
 
