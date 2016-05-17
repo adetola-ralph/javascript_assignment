@@ -7,7 +7,7 @@ function NotesApplication(author){
 	};
 
 	this.listNotes = function(){
-		for(int i=0;i<this.notes.length;i++){
+		for(let i=0;i<this.notes.length;i++){
 			console.log("Note ID: " + i);
 			console.log(this.notes[i]);
 			console.log("By Author " + this.author);
