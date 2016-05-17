@@ -54,3 +54,18 @@ function NotesApplication(author){
 	}
 
 }
+
+var oreofe = new NotesApplication("Oreofe");
+
+oreofe.create("This is a good exercise");
+oreofe.create("This is also a good exercise");
+oreofe.create("That is an exercise");
+oreofe.create("Now this can be a good exercise");
+oreofe.create("Talk about this");
+oreofe.create("Lol, that was awesome");
+oreofe.listNotes();
+console.log(oreofe.get(2));
+oreofe.delete(2)
+oreofe.edit(2,"new Content");
+oreofe.listNotes();
+console.log(oreofe.search("this"));
