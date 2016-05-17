@@ -20,14 +20,29 @@ function NotesApplication(author){
 
 	this.search = function(search_text){
 		
-
-		for(let i=0;i>this.notes.length;i++)
+		var arrIndex = [];
+		var regularExpression = new RegExp(search_text,"i");
+		
+		for(let j=0;j<this.notes.length;j++)
 		{
-			if(regularExpression.test(this.notes[i]))
+			
+			if(regularExpression.test(this.notes[j]))
 			{
-				arrIndex.push(i);
+				arrIndex.push(j);
+				//console.log(j);
 			}
 		}
+
+		var returnedString = "Showing results for search ‘[ "+search_text+" ]’\n";
+
+		for(let i=0;i<arrIndex.length;i++)
+		{
+			returnedString += "Note ID: "+arrIndex[i]+"\n";
+			returnedString += this.notes[arrIndex[i]]+"\n";
+			returnedString += "By Author"+this.author+"\n\n\n";
+		}
+		
+		return returnedString;
 	}
 
 	this.delete = function(note_id){
