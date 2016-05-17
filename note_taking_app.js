@@ -15,7 +15,14 @@ function NotesApplication(author){
 	}
 
 	this.get = function(note_id){
-		return this.notes[note_id];
+		if(note_id >= 0 && note_id < this.notes.length)
+		{
+			return this.notes[note_id];
+		}
+		else
+		{
+			return "No such entry!";
+		}
 	}
 
 	this.search = function(search_text){
@@ -35,22 +42,36 @@ function NotesApplication(author){
 
 		var returnedString = "Showing results for search ‘[ "+search_text+" ]’\n";
 
-		for(let i=0;i<arrIndex.length;i++)
+
+		if(arrIndex.length>0)
+		{	
+			for(let i=0;i<arrIndex.length;i++)
+			{
+				returnedString += "Note ID: "+arrIndex[i]+"\n";
+				returnedString += this.notes[arrIndex[i]]+"\n";
+				returnedString += "By Author"+this.author+"\n\n\n";
+			}
+		}
+		else
 		{
-			returnedString += "Note ID: "+arrIndex[i]+"\n";
-			returnedString += this.notes[arrIndex[i]]+"\n";
-			returnedString += "By Author"+this.author+"\n\n\n";
+			returnedString += "No Such string exists in the application";
 		}
 		
 		return returnedString;
 	}
 
 	this.delete = function(note_id){
-		this.notes.splice(note_id,1);
+		if(note_id >= 0 && note_id < this.notes.length)
+		{
+			this.notes.splice(note_id,1);
+		}
 	}
 
 	this.edit = function(note_id, new_content){
-		this.notes[note_id] = new_content;
+		if(note_id >= 0 && note_id < this.notes.length)
+		{
+			this.notes[note_id] = new_content;
+		}	
 	}
 
 }
