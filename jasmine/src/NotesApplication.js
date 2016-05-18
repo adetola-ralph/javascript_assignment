@@ -19,4 +19,11 @@ function NotesApplication(author){
 		}
 	};
 
+  this.delete = function(note_id){
+    if(note_id >= 0 && note_id < this.notes.length)
+    {
+      this.notes.splice(note_id,1);
+    }
+  };
+
 }
