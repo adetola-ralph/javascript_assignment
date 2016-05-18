@@ -1,5 +1,3 @@
-"use strict";
-
 function NotesApplication(author){
 	this.author = author;
 	this.notes = [];
@@ -14,7 +12,7 @@ function NotesApplication(author){
 			console.log(this.notes[i]);
 			console.log("By Author " + this.author+"\n");
 		}
-	}
+	};
 
 	this.get = function(note_id){
 		if(note_id >= 0 && note_id < this.notes.length)
@@ -25,7 +23,7 @@ function NotesApplication(author){
 		{
 			return "No such entry!\n";
 		}
-	}
+	};
 
 	this.search = function(search_text){
 		
@@ -60,21 +58,21 @@ function NotesApplication(author){
 		}
 		
 		return returnedString;
-	}
+	};
 
 	this.delete = function(note_id){
 		if(note_id >= 0 && note_id < this.notes.length)
 		{
 			this.notes.splice(note_id,1);
 		}
-	}
+	};
 
 	this.edit = function(note_id, new_content){
 		if(note_id >= 0 && note_id < this.notes.length)
 		{
 			this.notes[note_id] = new_content;
 		}	
-	}
+	};
 
 }
 
@@ -88,7 +86,7 @@ oreofe.create("Talk about this");
 oreofe.create("Lol, that was awesome");
 oreofe.listNotes();
 console.log(oreofe.get(2));
-oreofe.delete(2)
+oreofe.delete(2);
 oreofe.edit(2,"new Content");
 oreofe.listNotes();
 console.log(oreofe.search("this"));
