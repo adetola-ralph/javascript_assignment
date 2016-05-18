@@ -6,7 +6,7 @@ describe("This class should have the following functions and behaviours",functio
   //beforeEach(function(){spyOn(noteApp, "get");})
 
   //tests the create function
-  it("adds values into notes array",function(){
+  it("Create function should only add one entry",function(){
     var notesLength = noteApp.notes.length;
     noteApp.create("New note");
     var newNotesLength = noteApp.notes.length;
