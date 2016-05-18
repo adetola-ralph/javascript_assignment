@@ -79,7 +79,12 @@ describe("This class should have the following functions and behaviours",functio
     it("Lists all the notes available",function(){
       expect(typeof(noteApp.listNotes())).toBe("string");
     });
-
-
   });
+
+  describe("Search function", function(){
+    it("returns string",function(){
+      expect(typeof(noteApp.search("new"))).toBe("string");
+    });
+  });
+
 });
