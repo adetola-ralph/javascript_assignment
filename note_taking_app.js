@@ -1,3 +1,5 @@
+"use strict";
+
 function NotesApplication(author){
 	this.author = author;
 	this.notes = [];
@@ -17,11 +19,11 @@ function NotesApplication(author){
 	this.get = function(note_id){
 		if(note_id >= 0 && note_id < this.notes.length)
 		{
-			return this.notes[note_id];
+			return this.notes[note_id]+"\n";
 		}
 		else
 		{
-			return "No such entry!";
+			return "No such entry!\n";
 		}
 	}
 
