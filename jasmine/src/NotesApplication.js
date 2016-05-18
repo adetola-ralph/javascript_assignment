@@ -26,4 +26,11 @@ function NotesApplication(author){
     }
   };
 
+  this.edit = function(note_id, new_content){
+		if(note_id >= 0 && note_id < this.notes.length)
+		{
+			this.notes[note_id] = new_content;
+		}
+	};
+
 }

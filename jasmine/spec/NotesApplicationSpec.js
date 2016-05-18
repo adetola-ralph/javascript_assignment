@@ -14,7 +14,7 @@ describe("This class should have the following functions and behaviours",functio
   });
 
   //tests the get args
-  describe("Testing the get functions",function(){
+  describe("Get functions",function(){
 
     beforeEach(function(){
       spyOn(noteApp, "get");
@@ -38,7 +38,7 @@ describe("This class should have the following functions and behaviours",functio
     });
   });
 
-  describe("Test the delete function",function(){
+  describe("Delete function",function(){
     beforeEach(function(){
       spyOn(noteApp, "delete");
     });
@@ -54,5 +54,16 @@ describe("This class should have the following functions and behaviours",functio
       expect(noteApp.delete.calls.argsFor(0)[0]).toBeLessThan(noteApp.notes.length);
     });
   });
+
+  describe("Edit function",function(){
+    beforeEach(function(){
+      spyOn(noteApp, "edit");
+    });
+
+    it("tests the number of passed variable",function(){
+      noteApp.edit(0,"test edit");
+      expect(noteApp.edit.calls.argsFor(0).length).toBe(2);
+    });
+  })
 
 });
