@@ -28,12 +28,13 @@ function NotesApplication(author){
 	this.search = function(search_text){
 		
 		var arrIndex = [];
-		var regularExpression = new RegExp(search_text,"i");
+		//var regularExpression = new RegExp(search_text,"i");
 		
 		for(let j=0;j<this.notes.length;j++)
 		{
 			
-			if(regularExpression.test(this.notes[j]))
+			//if(regularExpression.test(this.notes[j]))
+			if(this.notes[j].toLowerCase().includes(search_text.toLowerCase()))
 			{
 				arrIndex.push(j);
 				//console.log(j);
