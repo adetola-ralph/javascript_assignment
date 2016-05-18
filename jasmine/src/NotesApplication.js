@@ -33,4 +33,15 @@ function NotesApplication(author){
 		}
 	};
 
+  this.listNotes = function(){
+    var result = "";
+
+		for(let i=0;i<this.notes.length;i++){
+			result += "Note ID: " + i+"\n";
+			result += this.notes[i]+"\n";
+			result += "By Author " + this.author+"\n\n\n";
+		}
+    return result;
+	};
+
 }

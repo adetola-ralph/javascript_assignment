@@ -6,11 +6,18 @@ describe("This class should have the following functions and behaviours",functio
   //beforeEach(function(){spyOn(noteApp, "get");})
 
   //tests the create function
-  it("Create function should only add one entry",function(){
-    var notesLength = noteApp.notes.length;
-    noteApp.create("New note");
-    var newNotesLength = noteApp.notes.length;
-    expect(newNotesLength).toBe(notesLength+1);
+  describe("Create function",function(){
+    it("should only add one entry",function(){
+      var notesLength = noteApp.notes.length;
+      noteApp.create("New note");
+      var newNotesLength = noteApp.notes.length;
+      expect(newNotesLength).toBe(notesLength+1);
+    });
+
+    it("entry should not be empty",function(){
+      noteApp.create("New note");
+      expect(noteApp.notes[noteApp.notes.length-1]).not.toBe("");
+    });
   });
 
   //tests the get args
@@ -64,6 +71,15 @@ describe("This class should have the following functions and behaviours",functio
       noteApp.edit(0,"test edit");
       expect(noteApp.edit.calls.argsFor(0).length).toBe(2);
     });
-  })
 
+
+  });
+
+  describe("ListNotes function", function(){
+    it("Lists all the notes available",function(){
+      expect(typeof(noteApp.listNotes())).toBe("string");
+    });
+
+
+  });
 });
