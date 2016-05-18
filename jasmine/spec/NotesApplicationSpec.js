@@ -25,7 +25,14 @@ describe("This class should have the following functions and behaviours",functio
 
     it("supplies a number argument to get a note from the app",function(){
       noteApp.get(3);
+      //console.log(noteApp.get.calls.argsFor(0)[0]);
       expect(typeof(noteApp.get.calls.argsFor(0)[0])).toBe("number");
+    });
+
+    it("test if the argument is with range",function(){
+      noteApp.get(0);
+      expect(noteApp.get.calls.argsFor(0)[0]).toBeGreaterThan(-1);
+      expect(noteApp.get.calls.argsFor(0)[0]).toBeLessThan(noteApp.notes.length);
     });
   });
 
