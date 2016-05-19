@@ -42,16 +42,15 @@ describe("This object should have the following attributes, functions and behavi
   describe("Get functions",function(){
 
     beforeEach(function(){
-
       noteApp.create("First Entry");
       noteApp.create("Second Entry");
     });
 
     it("throw an exeption if argument isn't a number",function(){
       var getReturnedArgs = function(){
-        noteApp.get("2");
+        noteApp.get(20000); //noteApp.get("2"); //this owrks with entering a string also
       };
-      expect(getReturnedArgs).toThrow();
+      expect(getReturnedArgs).toThrowError("Please enter a number in range");
     });
 
     it("attempts to get only one value from the app",function(){

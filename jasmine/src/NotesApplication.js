@@ -13,11 +13,11 @@ function NotesApplication(author){
 	};
 
   this.get = function(note_id){
-    if(typeof(note_content)!=="number")
+    if(typeof(note_content)!=="number" || note_id <= 0 || note_id > this.notes.length)
     {
-      throw new Error();
+      throw new Error("Please enter a number in range");
     }
-    
+
 		if(note_id >= 0 && note_id < this.notes.length)
 		{
 			return this.notes[note_id]+"\n";
