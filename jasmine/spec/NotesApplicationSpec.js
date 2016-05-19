@@ -48,7 +48,7 @@ describe("This object should have the following attributes, functions and behavi
 
     it("throw an exeption if argument isn't a number",function(){
       var getReturnedArgs = function(){
-        noteApp.get(20000); //noteApp.get("2"); //this owrks with entering a string also
+        noteApp.get(20000); //noteApp.get("2"); //this works with entering a string also
       };
       expect(getReturnedArgs).toThrowError("Please enter a number in range");
     });
