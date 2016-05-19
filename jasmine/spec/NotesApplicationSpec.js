@@ -18,11 +18,6 @@ describe("This object should have the following attributes, functions and behavi
   //tests the create function
   describe("Create function",function(){
 
-    /*it("throw exeption is argument isn't a string",function(){
-      noteApp.create("Entry");
-      expect(typeof(noteApp.create.calls.argsFor(0)[0]) !== "string").toThrow();
-    });*/
-
     it("should only add one entry",function(){
       var notesLength = noteApp.notes.length;
       noteApp.create("New note");
