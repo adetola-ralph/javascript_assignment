@@ -1,9 +1,19 @@
 "use strict";
 
-describe("This class should have the following functions and behaviours",function(){
+
+describe("This object should have the following attributes, functions and behaviours",function(){
   var noteApp= new NotesApplication("Oreofe");
 
-  //beforeEach(function(){spyOn(noteApp, "get");})
+  describe("The object should have the following attributes",function(){
+
+    it("author attribute must be defined",function(){
+      expect(noteApp.author).toBeDefined();
+    });
+
+    it("notes attribute must be an array object",function(){
+      expect(typeof(noteApp.notes)).toBe("object");
+    });
+  });
 
   //tests the create function
   describe("Create function",function(){
