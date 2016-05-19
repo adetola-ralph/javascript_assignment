@@ -17,10 +17,16 @@ describe("This object should have the following attributes, functions and behavi
 
   //tests the create function
   describe("Create function",function(){
+
+    /*it("throw exeption is argument isn't a string",function(){
+      noteApp.create("Entry");
+      expect(typeof(noteApp.create.calls.argsFor(0)[0]) !== "string").toThrow();
+    });*/
+
     it("should only add one entry",function(){
       var notesLength = noteApp.notes.length;
       noteApp.create("New note");
-      var newNotesLength = noteApp.notes.length;
+      var newNotesLength = noteApp.notes.length
       expect(newNotesLength).toBe(notesLength+1);
     });
 
@@ -28,30 +34,42 @@ describe("This object should have the following attributes, functions and behavi
       noteApp.create("New note");
       expect(noteApp.notes[noteApp.notes.length-1]).not.toBe("");
     });
+
+    it("throws an exception if argument not a string",function(){
+      var returnedArgs = function(){
+        noteApp.create(2);
+      };
+      expect(returnedArgs).toThrow();
+    });
   });
 
   //tests the get args
   describe("Get functions",function(){
 
     beforeEach(function(){
-      spyOn(noteApp, "get");
+
+      noteApp.create("First Entry");
+      noteApp.create("Second Entry");
+    });
+
+    it("throw an exeption if argument isn't a number",function(){
+      var getReturnedArgs = function(){
+        noteApp.get("2");
+      };
+      expect(getReturnedArgs).toThrow();
     });
 
     it("attempts to get only one value from the app",function(){
-      noteApp.get(2);
+      spyOn(noteApp, "get");
+      noteApp.get(3);
       expect(noteApp.get.calls.argsFor(0).length).toBe(1);
     });
 
     it("supplies a number argument to get a note from the app",function(){
+      spyOn(noteApp, "get");
       noteApp.get(3);
       //console.log(noteApp.get.calls.argsFor(0)[0]);
       expect(typeof(noteApp.get.calls.argsFor(0)[0])).toBe("number");
-    });
-
-    it("test if the argument is with range",function(){
-      noteApp.get(0);
-      expect(noteApp.get.calls.argsFor(0)[0]).toBeGreaterThan(-1);
-      expect(noteApp.get.calls.argsFor(0)[0]).toBeLessThan(noteApp.notes.length);
     });
   });
 

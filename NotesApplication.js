@@ -3,6 +3,10 @@ function NotesApplication(author){
 	this.notes = [];
 
 	this.create = function(note_content){
+		if(typeof(note_content)!="string")
+    {
+      throw new Error("Please enter a string");
+    }
 		this.notes.push(note_content);
 	};
 
@@ -17,7 +21,7 @@ function NotesApplication(author){
 	this.get = function(note_id){
 		if(note_id >= 0 && note_id < this.notes.length)
 		{
-			return this.notes[note_id]+"\n";
+			throw new Error("Please enter an id in range of 0 and "+this.notes.length)
 		}
 		else
 		{
@@ -26,13 +30,13 @@ function NotesApplication(author){
 	};
 
 	this.search = function(search_text){
-		
+
 		var arrIndex = [];
 		//var regularExpression = new RegExp(search_text,"i");
-		
+
 		for(let j=0;j<this.notes.length;j++)
 		{
-			
+
 			//if(regularExpression.test(this.notes[j]))
 			if(this.notes[j].toLowerCase().includes(search_text.toLowerCase()))
 			{
@@ -45,7 +49,7 @@ function NotesApplication(author){
 
 
 		if(arrIndex.length>0)
-		{	
+		{
 			for(let i=0;i<arrIndex.length;i++)
 			{
 				returnedString += "Note ID: "+arrIndex[i]+"\n";
@@ -57,7 +61,7 @@ function NotesApplication(author){
 		{
 			returnedString += "No Such string exists in the application";
 		}
-		
+
 		return returnedString;
 	};
 
@@ -72,7 +76,7 @@ function NotesApplication(author){
 		if(note_id >= 0 && note_id < this.notes.length)
 		{
 			this.notes[note_id] = new_content;
-		}	
+		}
 	};
 
 }
