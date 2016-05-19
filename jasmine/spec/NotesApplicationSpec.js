@@ -68,16 +68,14 @@ describe("This object should have the following attributes, functions and behavi
   });
 
   describe("Delete function",function(){
-    beforeEach(function(){
-      spyOn(noteApp, "delete");
-    });
-
     it("tests the number of passed variable",function(){
+      spyOn(noteApp, "delete");
       noteApp.delete(2);
       expect(noteApp.delete.calls.argsFor(0).length).toBe(1);
     });
 
     it("test if the argument is with range",function(){
+      spyOn(noteApp, "delete");
       noteApp.delete(0);
       expect(noteApp.delete.calls.argsFor(0)[0]).toBeGreaterThan(-1);
       expect(noteApp.delete.calls.argsFor(0)[0]).toBeLessThan(noteApp.notes.length);
